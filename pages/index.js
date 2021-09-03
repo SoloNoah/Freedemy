@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>Freedemy | Home</title>
       </Head>
-      <h1>This is a home page</h1>
+      <h1>This is a home page for freedemy</h1>
     </div>
   );
 }
