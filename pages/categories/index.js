@@ -30,9 +30,14 @@ export async function getStaticProps({ params }) {
   const jsonData = fs.readFileSync(filePath);
   const allCategory = JSON.parse(jsonData);
 
+
+  if (allCategory.length === 0) {
+    return { notFound: true };
+  }
   return {
     props: {
       categories: allCategory.categories,
     },
+    revalidate: 60,
   };
 }

@@ -6,6 +6,9 @@ import fs from 'fs';
 import path from 'path';
 
 export default function Category({ category, courses }) {
+  if (!category) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
       <Head>
@@ -33,11 +36,19 @@ export async function getStaticPaths() {
 
   return {
     paths: categoryPaths,
-    fallback: false,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
+  const filePath = path.join(process.cwd(), 'category-data', 'category.json');
+  const jsonData = fs.readFileSync(filePath);
+  const allCategory = JSON.parse(jsonData);
+  const foundCategory = allCategory.categories.find((singleCategory) => singleCategory.title === params.category);
+
+  if (!foundCategory) {
+    return { notFound: true };
+  }
   const BASE_URL = 'https://www.udemy.com/api-2.0/';
   const searchParams = new URLSearchParams({
     price: 'price-free',
@@ -49,13 +60,24 @@ export async function getStaticProps({ params }) {
     Authorization: `Basic ${process.env.AUTH}`,
     ContentType: 'application/json;charset=utf-8',
   };
-  const data = await fetch(BASE_URL + 'courses?' + searchParams, { headers });
-  const coursesJSON = await data.json();
-  const courses = coursesJSON.results;
-  return {
-    props: {
-      category: params.category,
-      courses,
-    },
-  };
+
+  try {
+    const data = await fetch(BASE_URL + 'courses?' + searchParams, { headers });
+    const coursesJSON = await data.json();
+    const courses = coursesJSON.results;
+
+    if (courses.length === 0) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        category: params.category,
+        courses,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
 }
