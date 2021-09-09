@@ -2,10 +2,10 @@ import Head from 'next/head';
 
 import CourseLink from '../../components/link/CourseLink';
 
-import { getAllCourses } from '../../category-data/category';
+import fs from 'fs';
+import path from 'path';
 
-export default function Categories() {
-  const allCategory = getAllCourses();
+export default function Categories({ categories }) {
   return (
     <div>
       <Head>
@@ -13,7 +13,7 @@ export default function Categories() {
       </Head>
       <div>This is categories</div>
       <ul>
-        {allCategory.map((course) => {
+        {categories.map((course) => {
           return (
             <li key={course.id}>
               <CourseLink course={course.title}></CourseLink>
@@ -23,4 +23,16 @@ export default function Categories() {
       </ul>
     </div>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const filePath = path.join(process.cwd(), 'category-data', 'category.json');
+  const jsonData = fs.readFileSync(filePath);
+  const allCategory = JSON.parse(jsonData);
+
+  return {
+    props: {
+      categories: allCategory.categories,
+    },
+  };
 }

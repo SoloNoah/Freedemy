@@ -1,7 +1,9 @@
 import Head from 'next/head';
 
 import Card from '../../components/card/Card';
-import { getAllCourses } from '../../category-data/category';
+
+import fs from 'fs';
+import path from 'path';
 
 export default function Category({ category, courses }) {
   return (
@@ -20,8 +22,10 @@ export default function Category({ category, courses }) {
 }
 
 export async function getStaticPaths() {
-  const allCategory = getAllCourses();
-  const categoryPaths = allCategory.map((singleCategory) => {
+  const filePath = path.join(process.cwd(), 'category-data', 'category.json');
+  const jsonData = fs.readFileSync(filePath);
+  const allCategory = JSON.parse(jsonData);
+  const categoryPaths = allCategory.categories.map((singleCategory) => {
     {
       return { params: { category: singleCategory.title } };
     }
@@ -37,7 +41,7 @@ export async function getStaticProps({ params }) {
   const BASE_URL = 'https://www.udemy.com/api-2.0/';
   const searchParams = new URLSearchParams({
     price: 'price-free',
-    page_size: 100,
+    page_size: 10,
     category: params.category,
   });
   const headers = {
