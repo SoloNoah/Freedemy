@@ -2,55 +2,613 @@
   "categories": [
     {
       "id": "1",
-      "title": "Business"
+      "title": "Business",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Entrepreneurship"
+        },
+        {
+          "id": "2",
+          "title": "Communication"
+        },
+        {
+          "id": "3",
+          "title": "Management"
+        },
+        {
+          "id": "4",
+          "title": "Sales"
+        },
+        {
+          "id": "5",
+          "title": "Business Strategy"
+        },
+        {
+          "id": "6",
+          "title": "Operations"
+        },
+        {
+          "id": "7",
+          "title": "Project Mangement"
+        },
+        {
+          "id": "8",
+          "title": "Business Law"
+        },
+        {
+          "id": "9",
+          "title": "Business Analytics & Intelligence"
+        },
+        {
+          "id": "10",
+          "title": "Human Resources"
+        },
+        {
+          "id": "11",
+          "title": "Industry"
+        },
+        {
+          "id": "12",
+          "title": "E-Commerce"
+        },
+        {
+          "id": "13",
+          "title": "Media"
+        },
+        {
+          "id": "14",
+          "title": "Real Estate"
+        },
+        {
+          "id": "15",
+          "title": "Other Business"
+        }
+      ]
     },
     {
       "id": "2",
-      "title": "Design"
+      "title": "Design",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Web Design"
+        },
+        {
+          "id": "2",
+          "title": "Graphic Design & Illustration"
+        },
+        {
+          "id": "3",
+          "title": "Design Tools"
+        },
+        {
+          "id": "4",
+          "title": "User Experience Design"
+        },
+        {
+          "id": "5",
+          "title": "Game Design"
+        },
+        {
+          "id": "6",
+          "title": "Design Thinking"
+        },
+        {
+          "id": "7",
+          "title": "3D & Animation"
+        },
+        {
+          "id": "8",
+          "title": "Fashion Design"
+        },
+        {
+          "id": "9",
+          "title": "Architectural Design"
+        },
+        {
+          "id": "10",
+          "title": "Interior Design"
+        },
+        {
+          "id": "11",
+          "title": "Other Design"
+        }
+      ]
     },
     {
       "id": "3",
-      "title": "Development"
+      "title": "Development",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Web Development"
+        },
+        {
+          "id": "2",
+          "title": "Data Science"
+        },
+        {
+          "id": "3",
+          "title": "Mobile Development"
+        },
+        {
+          "id": "4",
+          "title": "Programming Languages"
+        },
+        {
+          "id": "5",
+          "title": "Game Development"
+        },
+        {
+          "id": "6",
+          "title": "Database Design & Development"
+        },
+        {
+          "id": "7",
+          "title": "Software Testing"
+        },
+        {
+          "id": "8",
+          "title": "Software Engineering"
+        },
+        {
+          "id": "9",
+          "title": "Software Development Tools"
+        },
+        {
+          "id": "10",
+          "title": "No-Code Development"
+        }
+      ]
     },
     {
       "id": "4",
-      "title": "Finance & Accounting"
+      "title": "Finance & Accounting",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Accounting & Bookkeeping"
+        },
+        {
+          "id": "2",
+          "title": "Compliance"
+        },
+        {
+          "id": "3",
+          "title": "Cryptocurrency & Blockchain"
+        },
+        {
+          "id": "4",
+          "title": "Economics"
+        },
+        {
+          "id": "5",
+          "title": "Finance"
+        },
+        {
+          "id": "6",
+          "title": "Finance Cert & Exam Prep"
+        },
+        {
+          "id": "7",
+          "title": "Financial Modeling & Analysis"
+        },
+        {
+          "id": "8",
+          "title": "Investing & Trading"
+        },
+        {
+          "id": "9",
+          "title": "Money Management Tools"
+        },
+        {
+          "id": "10",
+          "title": "Taxes"
+        },
+        {
+          "id": "11",
+          "title": "Other Finance & Accounting"
+        }
+      ]
     },
     {
       "id": "5",
-      "title": "Health & Fitness"
+      "title": "Health & Fitness",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Fitness"
+        },
+        {
+          "id": "2",
+          "title": "General Health"
+        },
+        {
+          "id": "3",
+          "title": "Sports"
+        },
+        {
+          "id": "4",
+          "title": "Nutrition"
+        },
+        {
+          "id": "5",
+          "title": "Yoga"
+        },
+        {
+          "id": "6",
+          "title": "Mental Health"
+        },
+        {
+          "id": "7",
+          "title": "Dieting"
+        },
+        {
+          "id": "8",
+          "title": "Self Defense"
+        },
+        {
+          "id": "9",
+          "title": "Safety & First Aid"
+        },
+        {
+          "id": "10",
+          "title": "Dance"
+        },
+        {
+          "id": "11",
+          "title": "Meditation"
+        },
+        {
+          "id": "12",
+          "title": "Other Health & Fitness"
+        }
+      ]
     },
     {
       "id": "6",
-      "title": "IT & Software"
+      "title": "IT & Software",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "IT Certifications"
+        },
+        {
+          "id": "2",
+          "title": "Network & Security"
+        },
+        {
+          "id": "3",
+          "title": "Hardware"
+        },
+        {
+          "id": "4",
+          "title": "Operating Systems & Servers"
+        },
+        {
+          "id": "5",
+          "title": "Other IT & Software"
+        }
+      ]
     },
     {
       "id": "7",
-      "title": "Lifestyle"
+      "title": "Lifestyle",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Arts & Crafts"
+        },
+        {
+          "id": "2",
+          "title": "Beauty & Makeup"
+        },
+        {
+          "id": "3",
+          "title": "Esoteric Practices"
+        },
+        {
+          "id": "4",
+          "title": "Food & Beverage"
+        },
+        {
+          "id": "5",
+          "title": "Gaming"
+        },
+        {
+          "id": "6",
+          "title": "Home Improvement"
+        },
+        {
+          "id": "7",
+          "title": "Pet Care & Training"
+        },
+        {
+          "id": "8",
+          "title": "Travel"
+        },
+        {
+          "id": "9",
+          "title": "Other Lifestyle"
+        }
+      ]
     },
     {
       "id": "8",
-      "title": "Marketing"
+      "title": "Marketing",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Digital Marketing"
+        },
+        {
+          "id": "2",
+          "title": "Search Engine Optimization"
+        },
+        {
+          "id": "3",
+          "title": "Social Media Marketing"
+        },
+        {
+          "id": "4",
+          "title": "Branding"
+        },
+        {
+          "id": "5",
+          "title": "Marketing Fundamentals"
+        },
+        {
+          "id": "6",
+          "title": "Marketing Analytics & Automation"
+        },
+        {
+          "id": "7",
+          "title": "Public Relations"
+        },
+        {
+          "id": "8",
+          "title": "Advertising"
+        },
+        {
+          "id": "9",
+          "title": "Video & Mobile Marketing"
+        },
+        {
+          "id": "10",
+          "title": "Content Marketing"
+        },
+        {
+          "id": "11",
+          "title": "Growth Hacking"
+        },
+        {
+          "id": "12",
+          "title": "Affiliate Marketing"
+        },
+        {
+          "id": "13",
+          "title": "Product Marketing"
+        },
+        {
+          "id": "14",
+          "title": "Other Marketing"
+        }
+      ]
     },
     {
       "id": "9",
-      "title": "Music"
+      "title": "Music",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Instruments"
+        },
+        {
+          "id": "2",
+          "title": "Music Production"
+        },
+        {
+          "id": "3",
+          "title": "Music Fundamentals"
+        },
+        {
+          "id": "4",
+          "title": "Vocal"
+        },
+        {
+          "id": "5",
+          "title": "Music Techniques"
+        },
+        {
+          "id": "6",
+          "title": "Music Software"
+        },
+        {
+          "id": "7",
+          "title": "Other Music"
+        }
+      ]
     },
     {
       "id": "10",
-      "title": "Office Productivity"
+      "title": "Office Productivity",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Microsoft"
+        },
+        {
+          "id": "2",
+          "title": "Apple"
+        },
+        {
+          "id": "3",
+          "title": "Google"
+        },
+        {
+          "id": "4",
+          "title": "SAP"
+        },
+        {
+          "id": "5",
+          "title": "Oracle"
+        },
+        {
+          "id": "6",
+          "title": "Other Office Productivity"
+        }
+      ]
     },
     {
       "id": "11",
-      "title": "Personal Development"
+      "title": "Personal Development",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Personal Transformation"
+        },
+        {
+          "id": "2",
+          "title": "Personal Productivity"
+        },
+        {
+          "id": "3",
+          "title": "Leadership"
+        },
+        {
+          "id": "4",
+          "title": "Career Development"
+        },
+        {
+          "id": "5",
+          "title": "Parenting & Relationships"
+        },
+        {
+          "id": "6",
+          "title": "Happiness"
+        },
+        {
+          "id": "7",
+          "title": "Esoteric Practices"
+        },
+        {
+          "id": "8",
+          "title": "Religion & Spirituality"
+        },
+        {
+          "id": "9",
+          "title": "Personal Brand Building"
+        },
+        {
+          "id": "10",
+          "title": "Creativity"
+        },
+        {
+          "id": "11",
+          "title": "Influence"
+        },
+        {
+          "id": "12",
+          "title": "Self Esteem & Confidence"
+        },
+        {
+          "id": "13",
+          "title": "Strss Management"
+        },
+        {
+          "id": "14",
+          "title": "Memory & Study Skills"
+        },
+        {
+          "id": "15",
+          "title": "Motivation"
+        },
+        {
+          "id": "16",
+          "title": "Other Personal Development"
+        }
+      ]
     },
     {
       "id": "12",
-      "title": "Photography & Video"
+      "title": "Photography & Video",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Digital Photography"
+        },
+        {
+          "id": "2",
+          "title": "Photography"
+        },
+        {
+          "id": "3",
+          "title": "Portrait Photography"
+        },
+        {
+          "id": "4",
+          "title": "Photography Tools"
+        },
+        {
+          "id": "5",
+          "title": "Commercial Photography"
+        },
+        {
+          "id": "6",
+          "title": "Video Design"
+        },
+        {
+          "id": "7",
+          "title": "Other Photography & Video"
+        }
+      ]
     },
     {
       "id": "13",
-      "title": "Teaching & Academics"
+      "title": "Teaching & Academics",
+      "subCategories": [
+        {
+          "id": "1",
+          "title": "Engineering"
+        },
+        {
+          "id": "2",
+          "title": "Humanities"
+        },
+        {
+          "id": "3",
+          "title": "Math"
+        },
+        {
+          "id": "4",
+          "title": "Science"
+        },
+        {
+          "id": "5",
+          "title": "Online Education"
+        },
+        {
+          "id": "6",
+          "title": "Social Science"
+        },
+        {
+          "id": "7",
+          "title": "Language Learning"
+        },
+        {
+          "id": "8",
+          "title": "Teacher Training"
+        },
+        {
+          "id": "9",
+          "title": "Test Prep"
+        },
+        {
+          "id": "10",
+          "title": "Other Teaching & Academics"
+        }
+      ]
     }
   ]
 }

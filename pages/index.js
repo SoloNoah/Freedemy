@@ -2,6 +2,8 @@ import Head from 'next/head';
 
 import Card from '../components/card/Card';
 
+import { getData } from '../helper';
+
 export default function Home({ courses }) {
   return (
     <div>
@@ -19,17 +21,7 @@ export default function Home({ courses }) {
 }
 
 export async function getStaticProps() {
-  const BASE_URL = 'https://www.udemy.com/api-2.0/';
-  const params = new URLSearchParams({
-    price: 'price-free',
-  });
-  const headers = {
-    Accept: 'application/json, text/plain, */*',
-    Authorization: `Basic ${process.env.AUTH}`,
-    ContentType: 'application/json;charset=utf-8',
-  };
-  const data = await fetch(BASE_URL + 'courses?' + params, { headers });
-  const coursesJSON = await data.json();
+  const coursesJSON = await getData();
   const courses = coursesJSON.results.slice(0, 3);
 
   return {

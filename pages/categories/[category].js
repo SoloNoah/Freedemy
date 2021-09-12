@@ -2,6 +2,8 @@ import Head from 'next/head';
 
 import Card from '../../components/card/Card';
 
+import { getData } from '../../helper';
+
 import fs from 'fs';
 import path from 'path';
 
@@ -49,21 +51,19 @@ export async function getStaticProps({ params }) {
   if (!foundCategory) {
     return { notFound: true };
   }
-  const BASE_URL = 'https://www.udemy.com/api-2.0/';
-  const searchParams = new URLSearchParams({
-    price: 'price-free',
-    page_size: 10,
-    category: params.category,
-  });
-  const headers = {
-    Accept: 'application/json, text/plain, */*',
-    Authorization: `Basic ${process.env.AUTH}`,
-    ContentType: 'application/json;charset=utf-8',
-  };
+  // const BASE_URL = 'https://www.udemy.com/api-2.0/';
+  // const searchParams = new URLSearchParams({
+  //   price: 'price-free',
+  //   category: params.category,
+  // });
+  // const headers = {
+  //   Accept: 'application/json, text/plain, */*',
+  //   Authorization: `Basic ${process.env.AUTH}`,
+  //   ContentType: 'application/json;charset=utf-8',
+  // };
 
   try {
-    const data = await fetch(BASE_URL + 'courses?' + searchParams, { headers });
-    const coursesJSON = await data.json();
+    const coursesJSON = await getData(params.category);
     const courses = coursesJSON.results;
 
     if (courses.length === 0) {
