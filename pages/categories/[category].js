@@ -14,6 +14,9 @@ export default function Category({ category, coursesJSON, subCategories, next })
   const [nextPage, setNext] = useState(next);
 
   useEffect(() => {
+    console.log(loadedCourses);
+  });
+  useEffect(() => {
     let courses = coursesJSON.results;
     setLoadedCourses(courses);
   }, [coursesJSON]);
@@ -38,29 +41,11 @@ export default function Category({ category, coursesJSON, subCategories, next })
         .then((response) => response.json())
         .then((data) => {
           let newCourses = data.coursesJSON;
-          let updatedCourses = [...loadedCourses, ...newCourses.results];
+          let updatedCourses = [...new Set([...loadedCourses, ...newCourses.results])];
           newCourses.next ? setNext(true) : setNext(false);
           setLoadedCourses(updatedCourses);
         });
     }
-    // if (next && value === 'back') {
-    //   setPage(page - 1);
-    //   const request = {
-    //     page: page - 1,
-    //     category,
-    //   };
-    //   fetch('/api/paginate', {
-    //     method: 'POST',
-    //     body: JSON.stringify(request),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       let newCourses = data.coursesJSON;
-    //       newCourses.next ? setNext(true) : setNext(false);
-    //       newCourses.previous ? setPrevious(true) : setPrevious(false);
-    //       setLoadedCourses(newCourses.results);
-    //     });
-    // }
   };
 
   if (!category) {
@@ -89,13 +74,6 @@ export default function Category({ category, coursesJSON, subCategories, next })
         ) : (
           <></>
         )}
-        {/* {previousPage ? (
-          <button onClick={handlePaginate} value='back'>
-            Previous
-          </button>
-        ) : (
-          <></>
-        )} */}
       </div>
     </div>
   );
