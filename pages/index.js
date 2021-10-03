@@ -22,6 +22,7 @@ export default function Home({ courses }) {
 
 export async function getStaticProps() {
   const coursesJSON = await getData();
+
   const courses = coursesJSON.results.slice(0, 3);
 
   return {
