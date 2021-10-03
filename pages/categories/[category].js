@@ -8,20 +8,15 @@ import { useState, useEffect } from 'react';
 import fs from 'fs';
 import path from 'path';
 
-export default function Category({ category, coursesJSON, subCategories, next, previous }) {
+export default function Category({ category, coursesJSON, subCategories, next }) {
   const [page, setPage] = useState(1);
   const [loadedCourses, setLoadedCourses] = useState([]);
-  const [previousPage, setPrevious] = useState(previous);
   const [nextPage, setNext] = useState(next);
 
   useEffect(() => {
     let courses = coursesJSON.results;
     setLoadedCourses(courses);
-  }, [setLoadedCourses, coursesJSON]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [loadedCourses]);
+  }, [coursesJSON]);
 
   const handleChange = async (value) => {
     let courses = await getSubCategory(category, value);
@@ -43,29 +38,29 @@ export default function Category({ category, coursesJSON, subCategories, next, p
         .then((response) => response.json())
         .then((data) => {
           let newCourses = data.coursesJSON;
+          let updatedCourses = [...loadedCourses, ...newCourses.results];
           newCourses.next ? setNext(true) : setNext(false);
-          newCourses.previous ? setPrevious(true) : setPrevious(false);
-          setLoadedCourses(newCourses.results);
+          setLoadedCourses(updatedCourses);
         });
     }
-    if (next && value === 'back') {
-      setPage(page - 1);
-      const request = {
-        page: page - 1,
-        category,
-      };
-      fetch('/api/paginate', {
-        method: 'POST',
-        body: JSON.stringify(request),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          let newCourses = data.coursesJSON;
-          newCourses.next ? setNext(true) : setNext(false);
-          newCourses.previous ? setPrevious(true) : setPrevious(false);
-          setLoadedCourses(newCourses.results);
-        });
-    }
+    // if (next && value === 'back') {
+    //   setPage(page - 1);
+    //   const request = {
+    //     page: page - 1,
+    //     category,
+    //   };
+    //   fetch('/api/paginate', {
+    //     method: 'POST',
+    //     body: JSON.stringify(request),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       let newCourses = data.coursesJSON;
+    //       newCourses.next ? setNext(true) : setNext(false);
+    //       newCourses.previous ? setPrevious(true) : setPrevious(false);
+    //       setLoadedCourses(newCourses.results);
+    //     });
+    // }
   };
 
   if (!category) {
@@ -94,13 +89,13 @@ export default function Category({ category, coursesJSON, subCategories, next, p
         ) : (
           <></>
         )}
-        {previousPage ? (
+        {/* {previousPage ? (
           <button onClick={handlePaginate} value='back'>
             Previous
           </button>
         ) : (
           <></>
-        )}
+        )} */}
       </div>
     </div>
   );
@@ -147,7 +142,6 @@ export async function getStaticProps({ params }) {
         coursesJSON,
         subCategories,
         next,
-        previous,
       },
       revalidate: 60,
     };
